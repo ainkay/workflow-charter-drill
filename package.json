@@ -1,0 +1,14 @@
+{
+  "name": "workflow-charter-drill",
+  "version": "1.0.0",
+  "description": "Assignment repository for LU 1.10 — Workflow Charter Design",
+  "main": "src/app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node src/app.js"
+  }
+}
