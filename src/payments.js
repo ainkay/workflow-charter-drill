@@ -1,7 +1,7 @@
 function calculateTotal(items) {
     let total = 0;
     items.forEach(item => {
-        total += item.price;
+        total += (item.price - item.discount); // refactor for discounts
     });
     return total;
 }
