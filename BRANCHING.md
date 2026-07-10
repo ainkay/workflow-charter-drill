@@ -1,75 +1,26 @@
-# Branching Strategy
+# Workflow Charter: Branching & Release Strategy
 
-## Branch Naming Convention
+This document defines the governance for the `workflow-charter-drill` repository.
 
-| Prefix | Purpose | Example |
-|---------|----------|---------|
-| feature/ | New features | feature/user-login |
-| bugfix/ | Bug fixes | bugfix/navbar-crash |
-| hotfix/ | Emergency production fixes | hotfix/payment-error |
-| release/ | Release preparation | release/v1.3.0 |
-| chore/ | Maintenance work | chore/update-eslint |
+## 1. Branching Model: GitHub Flow
+- **main**: The only stable branch. Always deployable. Direct pushes are strictly forbidden.
+- **feature/**: For new features or non-critical improvements.
+- **bugfix/**: For resolving identified bugs.
+- **hotfix/**: For critical production issues (branched from `main` and merged back immediately).
 
----
+## 2. Commit Standards
+We follow **Conventional Commits**:
+- `feat:` for new features
+- `fix:` for bug fixes
+- `chore:` for maintenance
+- `docs:` for documentation changes
 
-# Protected Branches
+## 3. Pull Request Requirements
+- Must use the PR template.
+- Requires successful CI/CD pipeline execution.
+- Requires at least 1 approval from a member of the `@CODEOWNERS`.
+- No merge conflicts allowed.
 
-## main
-
-Protection:
-
-- No direct pushes
-- Pull Requests required
-- At least 2 approvals
-- Passing CI required
-- Branch must be up to date before merge
-
-Reason:
-
-Keeps production stable.
-
----
-
-## develop (if used)
-
-Protection:
-
-- PR required
-- Passing CI
-
-Reason:
-
-Ensures integration branch remains stable.
-
----
-
-# Branch Lifecycle
-
-1. Create branch from main.
-2. Implement changes.
-3. Sync regularly with main.
-4. Open Pull Request.
-5. Complete reviews.
-6. Pass all CI checks.
-7. Merge.
-8. Delete branch.
-
-Maximum feature branch lifetime:
-
-**7 days**
-
----
-
-# Sync Policy
-
-Developers must sync with main:
-
-- Daily
-- Before opening a PR
-- Before merging
-
-Command:
-
-```bash
-git fetch origin
-git rebase origin/main
+## 4. Release Process
+- Every merge to `main` must be tagged with a semantic version (e.g., `v1.0.0`).
+- Releases are automatically generated via GitHub Actions upon tagging.
