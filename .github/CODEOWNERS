@@ -1,8 +1,6 @@
+# This is the CODEOWNERS file.
+# It defines who is responsible for different parts of the codebase.
 
-### Meaning
-
-No automatic reviewers are assigned.
-
-### Risk
-
-Critical files may be merged without review from the correct team.
+* @kalviumcommunity/devops-instructors
+/src/payments.js @kalviumcommunity/fintech-team
+/src/auth.js @kalviumcommunity/security-team
